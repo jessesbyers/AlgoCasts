@@ -7,6 +7,19 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// MOST STRAIGHTDFORWARD
+// function palindrome(str) {
+//     const reversed = str.split('').reverse().join('')
+//     return reversed === str ? true : false
+// }
+
+// WITHOUT REVERSE - using .every() helper, not ideal by big O because of double comparison, 
+// compares first and last letter of array until they are not equal
+// compares
+function palindrome(str) {
+    return str.split('').every((char, i) => {
+        return char === str[str.length-i-1]
+    })
+}
 
 module.exports = palindrome;
