@@ -24,7 +24,7 @@
 
 
 
-// SOLUTION 2: RECURSIVE SOLUTION
+// SOLUTION 2: RECURSIVE SOLUTION - exponential runtime (n^2)
 
 function fib(n) {
     if (n < 2) {
@@ -33,6 +33,38 @@ function fib(n) {
   
     return fib(n-1) + fib(n-2)
 }
+
+// SOLUTION 3: MEMOIZATION SOLUTION: Improving runtime with recursive solution through memoization
+// generic memoize function can be used for any function that requires memoization
+
+function memoize(fn) {
+    // create a cache object
+    const cache = {}
+
+    // call an anonymous function using args 
+    return function(...args) {
+        // if it has already been called with that argument, return the value already stored
+        if (cache[args]) {
+            return cache[args]
+        }
+
+        // if it hasn't been run already, run the function and store the result to cache for later
+        const result = fn.apply(this, args)
+        cache[args] = result
+        return result
+    }
+}
+
+function fib(n) {
+    if (n<2) {
+        return n
+    }
+
+    return fib(n-1) + fib(n-2)
+}
+
+fib = memoize(fib)
+
   
 
 module.exports = fib;
