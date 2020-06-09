@@ -8,6 +8,31 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+
+
+// ITERATIVE SOLUTION: bigO = linear runtime
+// function fib(n) {
+//     let fibo = [0, 1]
+  
+//     for (let i=2; i<=n; i++) {
+//       fibo.push(fibo[i-2] + fibo[i-1])
+//     }
+  
+//     return fibo[n]
+//   }
+
+
+
+
+// SOLUTION 2: RECURSIVE SOLUTION
+
+function fib(n) {
+    if (n < 2) {
+        return n
+    }
+  
+    return fib(n-1) + fib(n-2)
+}
+  
 
 module.exports = fib;
