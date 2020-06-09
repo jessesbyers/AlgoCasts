@@ -10,6 +10,27 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+// STACK NOTES - FILO - first in last out
+    // add to top of stack: push()
+    // remove from top of stackstack: pop()
+
+class Stack {
+    constructor() {
+        this.data = []
+    }
+
+    push(record) {
+        this.data.push(record)
+    }
+
+    pop() {
+        return this.data.pop()
+    }
+
+    peek() {
+        return this.data[this.data.length - 1]
+    }
+
+}
 
 module.exports = Stack;
