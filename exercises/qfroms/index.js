@@ -48,11 +48,6 @@ class Queue {
 
         return record
     }
-
-
-
-
-
 }
 
 module.exports = Queue;
